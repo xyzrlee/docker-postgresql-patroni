@@ -4,7 +4,7 @@ on:
 
 env:
   IMAGE_NAME: postgresql-patroni
-  POSTGRES_VERSION: ${{ POSTGRES_VERSION }}
+  POSTGRES_VERSION: ${{ vars.POSTGRES_VERSION }}
 
 jobs:
   build:
