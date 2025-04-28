@@ -10,6 +10,11 @@ jobs:
   build:
     name: Deploy to ghcr.io
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
     steps:
     - name: Checkout master
       uses: actions/checkout@v2
