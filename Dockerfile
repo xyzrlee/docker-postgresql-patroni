@@ -1,7 +1,8 @@
 ARG POSTGRES_VERSION=latest
-ENV PATRONI_VERSION=*
 
 FROM postgres:${POSTGRES_VERSION}
+
+ARG PATRONI_VERSION
 
 RUN apt-get update \
         && apt-get install -y --no-install-recommends python3 python3-pip python3-venv pkg-config build-essential libsystemd-dev python3-dev \
