@@ -10,6 +10,7 @@ RUN apt-get update \
         && mkdir -p /patroni-bin \
         && cd /patroni-bin \
         && python3 -m venv venv \
+        && echo "PATRONI_VERSION=${PATRONI_VERSION}" \
         && venv/bin/pip3 install --no-cache-dir "patroni[all,psycopg3]==${PATRONI_VERSION}"
 
 COPY entrypoint.sh /patroni-bin/
