@@ -1,4 +1,5 @@
 ARG POSTGRES_VERSION=latest
+ARG PATRONI_VERSION=
 
 FROM postgres:${POSTGRES_VERSION}
 
@@ -9,7 +10,7 @@ RUN apt-get update \
         && mkdir -p /patroni-bin \
         && cd /patroni-bin \
         && python3 -m venv venv \
-        && venv/bin/pip3 install --no-cache-dir "patroni[all,psycopg3]"
+        && venv/bin/pip3 install --no-cache-dir "patroni[all,psycopg3]==${PATRONI_VERSION}"
 
 COPY entrypoint.sh /patroni-bin/
 
